@@ -4,4 +4,7 @@ def countBits(n):
     as_binary = bin(n)
     #print(as_binary)
     #2) find our 1s
-    #3) add them to our answer
+    for x in as_binary:
+        if x is "1":
+            print(x)
+            #3) add them to our answer

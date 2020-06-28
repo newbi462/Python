@@ -20,3 +20,13 @@ so ```n``` is our ```1234```, which we can verify with ```print(n)```
 
 ### STEP 1) convert the number to the binary we need to check and add up
 Thankfully all we need to do here is convert the integer to its binary from with ```bin(n)``` for now for readability I will set it to a var called ```as_binary```
+
+
+### STEP 2) find our 1s
+Python is pretty flexible when it comes to dealing with data so we can loop over pretty much anything with out any work. So following our plan we will loop over each digest if the binary value and look for our ones.
+```
+for x in as_binary:
+    if x is "1":
+        print(x)
+```
+And now we can find all the 1s.
