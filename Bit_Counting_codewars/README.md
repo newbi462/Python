@@ -30,3 +30,25 @@ for x in as_binary:
         print(x)
 ```
 And now we can find all the 1s.
+
+### STEP 3) add them to our answer
+Well we have the ones, but that is not what we wanted to know; we want to know how many of them we have. So lets make a ```result``` var to return and ```+1``` it each time we find a ```1```.
+
+### STEP 4)
+Ok we got the result we want but never said to actually ```return``` it, so we should probably do that.
+```
+return result
+```
+
+Now, rather this final code with all these comments is or is not a mess honestly depends on the in house style guide lines.
+
+If you are a fan of less comments and less lines you could condense this to:
+```
+def countBits(n):
+    result = 0
+    for x in bin(n):
+        if x is "1":
+            result += 1
+    return result
+```
+But, this is one of those subjective points of readability.
