@@ -47,6 +47,11 @@ except KeyError:
 And to contain the scope of this error will will use recursion to contain it to a ```recursion(x)``` function.
 
 ### STEP 3) keep count of how many found
+We now have a list of values as we find them but we are not keeping track of how many we found. so lets add that
+```
+count_found[key_to_check_for] += 1
+```
+to increment our count in the ```recursion(key_to_check_for)``` we made in the last step
 
 ### STEP 4) if the count is odd set integer to the result
 Again this is based on "There will always be only one" rule.
