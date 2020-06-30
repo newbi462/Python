@@ -1,7 +1,18 @@
 def find_it(seq):
-    print(seq)
+    #print(seq)
     #1) look at all the integer
-    #2) is this a new or old integer
+    count_found = {}
+    def recursion(key_to_check_for):
+        try:
+            hold = count_found[key_to_check_for]
+        except KeyError:
+            count_found[key_to_check_for] = 1
+    for x in seq:
+        #print(x)
+        #2) is this a new or old integer
+        recursion(x)
+        print(count_found)
+    
     #3) keep count of how many found
     #4) if the count is odd set integer to the result
     #*Based on "There will always be only one" rule
