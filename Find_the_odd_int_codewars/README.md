@@ -54,8 +54,30 @@ count_found[key_to_check_for] += 1
 to increment our count in the ```recursion(key_to_check_for)``` we made in the last step
 
 ### STEP 4) if the count is odd set integer to the result
-Again this is based on "There will always be only one" rule.
+Again this is based on "There will always be only one" rule. Because we can only have one valid answer in the end this is basically at its core a test for is the count odd?
+
+##### FIRST
+we need a place to put the ```answer```, so I am going to add it to the dictionary.
+```
+count_found = {
+    "answer": None
+}
+```
+now all we do is test if the count value is odd or not. I tend to use ```%``` to test for remainders my self
+```
+if count_found[x]%2 == 0:
+        #print("even")
+        pass
+    else:
+        #print("odd")
+        pass
+        count_found["answer"] = x
+```
+but any odd even logic will do.
+
 
 ### STEP 5) return the result
+And now just need to ```return count_found["answer"]``` which should hold the one final odd count value.
 
-*** use a dict key value set to do this in ONE PASS
+
+****OPS, looks like a use case whole in this logic, in that the order can create a false positive... so we need to fix that to only have the one and only odd
