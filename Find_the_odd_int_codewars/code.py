@@ -22,11 +22,14 @@ def find_it(seq):
             #print("even")
             #print("len")
             #print(  count_found["answer"][len(count_found["answer"])-1]    )
-            if x == count_found["answer"][len(count_found["answer"])-1]:
-                count_found["answer"].pop()
+            #if x == count_found["answer"][len(count_found["answer"])-1]:
+            #    count_found["answer"].pop()
+            pass
         else:
             #print("odd")
             count_found["answer"].append(x)
+    while count_found[count_found["answer"][len(count_found["answer"])-1]]%2 == 0:
+        count_found["answer"].pop()
 
 
 

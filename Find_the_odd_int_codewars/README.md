@@ -85,3 +85,10 @@ And now just need to ```return count_found["answer"]``` which should hold the on
 
 ??? Tryy using an [] like a push in pop out list to remove false odds as they are proven even
 YEP THAT WORKS, do doc for this...
+
+test.assert_equals(find_it([20,1,-1,2,-2,3,3,5,5,1,2,4,20,4,-1,-2,5]), 5)
+test.assert_equals(find_it([1,1,2,-2,5,2,4,4,-1,-2,5]), -1);
+test.assert_equals(find_it([20,1,1,2,2,3,3,5,5,4,20,4,5]), 5);
+test.assert_equals(find_it([10]), 10);
+test.assert_equals(find_it([1,1,1,1,1,1,10,1,1,1,1]), 10);
+test.assert_equals(find_it([5,4,3,2,1,5,4,3,2,10,10]), 1);
