@@ -80,15 +80,60 @@ but any odd even logic will do.
 And now just need to ```return count_found["answer"]``` which should hold the one final odd count value.
 
 
-****OPS, looks like a use case whole in this logic, in that the order can create a false positive... so we need to fix that to only have the one and only odd
+****OPS, looks like a use case whole in this logic, in that the order can create a false positive... so we need to fix that to only have the one and only odd.
 
-
-??? Tryy using an [] like a push in pop out list to remove false odds as they are proven even
-YEP THAT WORKS, do doc for this...
-
-test.assert_equals(find_it([20,1,-1,2,-2,3,3,5,5,1,2,4,20,4,-1,-2,5]), 5)
-test.assert_equals(find_it([1,1,2,-2,5,2,4,4,-1,-2,5]), -1);
-test.assert_equals(find_it([20,1,1,2,2,3,3,5,5,4,20,4,5]), 5);
-test.assert_equals(find_it([10]), 10);
+## The Problem, and the fix
+```
 test.assert_equals(find_it([1,1,1,1,1,1,10,1,1,1,1]), 10);
-test.assert_equals(find_it([5,4,3,2,1,5,4,3,2,10,10]), 1);
+```
+In other words while ```10``` should be the answer ```1``` replaces it because of the order of the list. So how can we fix this?
+
+Well we can use a ```[]``` as a Stack or LIFO (last in first out) so we keep track of all our matches and then remove ones we do not want to keep.
+```
+count_found = {
+    "answer": [None]
+}
+```
+so now we can ```count_found["answer"].append(x)``` any odd counts to this list, and ```count_found["answer"].pop()``` any that become even using
+```
+while count_found[count_found["answer"][len(count_found["answer"])-1]]%2 == 0:
+      count_found["answer"].pop()
+```
+The result is the order no no longer matters, and ends of this stack that are not an ```odd``` count will be removed until only a true ```odd``` is the last value. And we can return that
+```
+return count_found["answer"][len(count_found["answer"])-1]
+```
+This is far from pretty, and the resulting ```code.py``` is full of dead ends, but I will leave them commented out so you can follow along. This solution reduces to
+```
+def find_it(seq):
+    count_found = {
+        "answer": [None]
+    }
+    def recursion(key_to_check_for):
+        try:
+            hold = count_found[key_to_check_for]
+            count_found[key_to_check_for] += 1
+        except KeyError:
+            count_found[key_to_check_for] = 1
+    for x in seq:
+        recursion(x)
+        if count_found[x]%2 == 0:
+            pass
+        else:
+            count_found["answer"].append(x)
+    while count_found[count_found["answer"][len(count_found["answer"])-1]]%2 == 0:
+        count_found["answer"].pop()
+    return count_found["answer"][len(count_found["answer"])-1]
+```
+and honestly, it has neither an optimal space or time complexity. But hay, we followed the plan.
+
+
+
+Ok, so we had fun with CS and Data Structures, but you know there is ```count()```
+```
+def find_it(seq):
+  for x in seq:
+      if seq.count(x)%2!=0:
+          return x
+```
+Just saying...
