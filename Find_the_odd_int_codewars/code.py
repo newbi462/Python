@@ -2,7 +2,7 @@ def find_it(seq):
     #print(seq)
     #1) look at all the integer
     count_found = {
-        "answer": None
+        "answer": [None]
     }
     def recursion(key_to_check_for):
         try:
@@ -15,18 +15,20 @@ def find_it(seq):
         #print(x)
         #2) is this a new or old integer
         recursion(x)
-        print(count_found)
+        #print(count_found)
         #4) if the count is odd set integer to the result
-        print(count_found[x]%2)
+        #print(count_found[x]%2)
         if count_found[x]%2 == 0:
             #print("even")
-            pass
+            #print("len")
+            #print(  count_found["answer"][len(count_found["answer"])-1]    )
+            if x == count_found["answer"][len(count_found["answer"])-1]:
+                count_found["answer"].pop()
         else:
             #print("odd")
-            pass
-            count_found["answer"] = x
+            count_found["answer"].append(x)
 
 
 
     #5) return the result
-    return count_found["answer"]
+    return count_found["answer"][len(count_found["answer"])-1]

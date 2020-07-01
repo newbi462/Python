@@ -81,3 +81,7 @@ And now just need to ```return count_found["answer"]``` which should hold the on
 
 
 ****OPS, looks like a use case whole in this logic, in that the order can create a false positive... so we need to fix that to only have the one and only odd
+
+
+??? Tryy using an [] like a push in pop out list to remove false odds as they are proven even
+YEP THAT WORKS, do doc for this...
